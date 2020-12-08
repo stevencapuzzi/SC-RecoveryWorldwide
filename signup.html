@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content=">Newsletter Sign-Up at Recovery Worldwide." />
+        <title>Newsletter Sign-Up - Recovery Worldwide</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/styles.css">
+        <link rel="icon" type="image/x-icon" href="assets/icon.png" />
+        <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+                <main>
+                    <nav>
+                        <div class="logo">
+                               <img src="assets/logo.svg" style="width:300px" />
+                         </div>
+                    </nav>
+
+                        <div class="page-header-content" id="page-bg">
+                            <div class="container fade-in" id="form">
+                                    <div class="page-header-content">
+                                        <div class="card">
+                                            <div class="card-header"><h1>Newsletter Sign-Up</h1></div>
+                                            <div class="card-body">
+                                                <p class="error" id="first-name-error"></p>
+                                                <p class="error" id="last-name-error"></p>
+                                                <p class="error" id="email-error"></p>
+                                                <form name="recovery-form">
+                                                    <div class="form-row">
+                                                        <div class="form-group col-md-6"><label class="small" for="FirstName">First Name</label><input class="form-control rounded-pill" id="FirstName" type="text" /></div>
+                                                        <div class="form-group col-md-6"><label class="small" for="LastName">Last Name</label><input class="form-control rounded-pill" id="LastName" type="text" /></div>
+                                                    </div>
+                                                    <div class="form-group"><label class="small" for="leadCapEmail">Email address</label><input class="form-control rounded-pill" id="Email" type="email" /></div>
+                                                    <button class="btn btn-primary btn-block rounded-pill" id="submit" type="submit">Send</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="circle">
+                                <div class="circle-inner">
+                                    <h2>Thank You <span id="insert-name"></span>!</h2>
+                                   <img class="icon" src="assets/icon.png" />
+                                    <p>You've successfully suscribed.</br>
+                                    You will start receiving our newsletter at<br />  <span id="insert-email"></span></p>
+                                 </div>
+                            </div>
+                        </div>           
+                </main>
+            </div>
+            <!-- Footer -->
+            <div class="align-items-center">
+                <footer class="footer pt-10 pb-5 mt-auto bg-white footer-light">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <img id="logo-footer" src="assets/logo.svg" />
+                            </div>
+                            <div class="col-lg-9">
+                                <div class="row">
+                                    <div class="col-lg-3 mobile">
+                                        <a href="javascript:void(0);">About Us</a>
+                                    </div>
+                                    <div class="col-lg-3 mobile">
+                                       <a href="javascript:void(0);">Properties</a>
+                                    </div>
+                                    <div class="col-lg-3 mobile">
+                                        <a href="javascript:void(0);">Contact</a>
+                                    </div>
+                                    <div class="col-lg-3 mobile">
+                                        <div class="icon-list-social">
+                                            <a class="icon-list-social-link" target="_blank" href="https://www.instagram.com/recoveryworldwide/"><i class="fab fa-instagram"></i></a><a class="icon-list-social-link" target="_blank" href="https://www.facebook.com/recoveryworldwidellc/"><i class="fab fa-facebook"></i></a><a class="icon-list-social-link" href="javascript:void(0);"><i class="fab fa-twitter"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="my-5" />
+                        <div class="row align-items-center">
+                            <div class="col-md-6 small">Copyright &copy; Recovery Worldwide 2020</div>
+                            <div class="col-md-6 text-md-right small">
+                                <a href="javascript:void(0);">Privacy Policy</a>
+                                &middot;
+                                <a href="javascript:void(0);">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script>
+           $('#submit').click(function(e) {
+            e.preventDefault();
+                let firstName = $('#FirstName').val();
+                let lastName = $('#LastName').val();
+                let email = $('#Email').val();
+                $('#first-name-error').html('');
+                $('#last-name-error').html('');
+                $('#email-error').html('');
+                if(firstName!='' && firstName.length>1 && lastName!='' && lastName.length>1 && isEmail(email)){
+                    $('#insert-name').html(firstName);
+                    $('#insert-email').html(email);
+                    $('#form').slideUp();
+                    $('.circle').slideDown();
+                }else{
+                    if(isEmail(email)==false){
+                        $('#Email').focus();
+                        $('#email-error').html('Please provide an Email Address.');
+                    }
+                    if(lastName=='' || lastName.length==1){
+                        $('#LastName').focus();
+                        $('#last-name-error').html('Please provide your Last Name.');
+                    }else{
+
+                    }
+                    if(firstName=='' || firstName.length==1){
+                        $('#FirstName').focus();
+                        $('#first-name-error').html('Please provide your First Name.');
+                    }
+                }
+               
+            });
+
+            function isEmail(email) {
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+            }
+        </script>
+    </body>
+</html>
